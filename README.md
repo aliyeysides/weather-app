@@ -1,5 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Environment setup
+
+1. In the weather-app root directory, clone the project by 
+```
+git clone https://github.com/greentool/greentool.git
+```
+
+2. Create a .env file with this line:
+```
+REACT_APP_WEATHER_API_KEY = d9d324394cc3c0c8114f95f48bf87765
+```
+
+3. 
+
 ## Available Scripts
 
 In the project directory, you can run:
