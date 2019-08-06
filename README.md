@@ -12,7 +12,7 @@ git clone https://github.com/sungyeonu/weather-app.git
 REACT_APP_WEATHER_API_KEY = d9d324394cc3c0c8114f95f48bf87765
 ```
 
-3. 
+Or you can get your own key at https://openweathermap.org/api
 
 ## Available Scripts
 
