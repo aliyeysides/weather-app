@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Environment setup
 
-1. In the weather-app root directory, clone the project by 
+1. In the root directory, clone the project by 
 ```
-git clone https://github.com/greentool/greentool.git
+git clone https://github.com/sungyeonu/weather-app.git
 ```
 
 2. Create a .env file with this line:
