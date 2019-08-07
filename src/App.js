@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './App.css';
+import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
+
+import Card from './components/Card';
+import Form from './components/Form';
 
 console.log(process.env.REACT_APP_WEATHER_API_KEY)
 function App() {
@@ -19,15 +23,11 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <ul>
-        {data.hits.map(item => (
-          <li key={item.objectID}>
-            <a href={item.url}>{item.title}</a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Container maxWidth="md">
+        <Form />
+        //TODO: use Grid Container
+        <Card />
+    </Container>
   );
 }
 
