@@ -1,23 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import axios from 'axios';
 import './App.css';
 
+console.log(process.env.REACT_APP_WEATHER_API_KEY)
 function App() {
-  const [data, setData] = useState({ hits: [] })
-  useEffect(async () => {
-    fetch("addLINK")
-    .then(res => res.json())
-    .then(res => this.setState)
-  })
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+  const [data, setData] = useState({ hits: [] });
 
-      </header>
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'http://hn.algolia.com/api/v1/search?query=redux',
+      );
+
+      setData(result.data);
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <ul>
+        {data.hits.map(item => (
+          <li key={item.objectID}>
+            <a href={item.url}>{item.title}</a>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
