@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
 import './App.css'
-import Card from './components/Card';
+import WeatherCard from './components/WeatherCard';
 import Form from './components/Form';
+import Grid from '@material-ui/core/Grid';
 
 console.log(process.env.REACT_APP_WEATHER_API_KEY)
 
@@ -18,7 +18,8 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       const result = await axios(
-        'http://hn.algolia.com/api/v1/search?query=redux',
+        //'http://hn.algolia.com/api/v1/search?query=redux',
+        'api.openweathermap.org/data/2.5/weather?q=London',
       );
 
       setData(result.data);
@@ -28,11 +29,11 @@ function App() {
   }, []);
 
   return (
-    <Container className="container" maxWidth="md">
+    <Box>
         <Form onSubmit={handleSubmit}/>
-        <Card />
-        <p>test</p>
-    </Container>
+        <WeatherCard />
+
+    </Box>
   );
 }
 
