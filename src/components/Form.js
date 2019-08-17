@@ -1,28 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react';
 import AppBar from '@material-ui/core/AppBar'
-import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles({
-  root: {
-    flexGrow: 1,
-  },
-})
 
 
 function Form(props) {
-  const classes = useStyles();
-
   return (
     <div>
-      <AppBar position="static" color="default">
-        <form>
-          <input type="text" name="city" placeholder="City..." />
-          <input type="text" name="country" placeholder="Country..." />
-          <button>Submit</button>
-        </form>
-      </AppBar>
-
+      <form onSubmit={props.getWeather}>
+        <TextField type="text" name="city" placeholder="City" />
+        <TextField type="text" name="country" placeholder="Country" />
+        {/* <button>Submit</button> */}
+        <Button variant="contained" size="small" color="primary" >Submit</Button>
+      </form>
     </div>
   )
 }
