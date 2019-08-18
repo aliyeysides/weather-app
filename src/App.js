@@ -42,11 +42,10 @@ function App() {
   }
 
   return (
-    <Box>
+    <Box className = "Box">
         <Form getWeather = { getWeather }/>
         <CardList cities = { cities }/>
         <CardList cities = { cities }/>
-
     </Box>
   );
 }
