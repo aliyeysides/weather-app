@@ -43,7 +43,7 @@ function App() {
 
   //, setCities, isMetric, setMetric
   return (
-    <Box className = "Box">
+    <Box className = "Box" >
         <Form getWeather={ getWeather } setCities={ setCities } isMetic={ isMetric } setMetric={ setMetric }/>
         <CardList cities={ cities }/>
         <h1>{ isMetric.toString() }</h1>

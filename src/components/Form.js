@@ -11,7 +11,7 @@ function Form(props) {
   return (
     <AppBar position="static" color="default">
       <ToolBar>
-        <form onSubmit={ props.getWeather }>
+        <form className = "form" onSubmit={ props.getWeather }>
 
             <TextField type="text" name="city" placeholder="City" />
             <TextField type="text" name="country" placeholder="Country" />
