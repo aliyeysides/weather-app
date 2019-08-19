@@ -13,7 +13,7 @@ function CardList(props) {
   }, []);
 
   function createCards() {
-    props.cities.map(x => console.log(x))
+    // props.cities.map(x => console.log(x))
   }
 
   return (
@@ -33,7 +33,7 @@ function CardList(props) {
       {/* <p>{t}</p> */}
       <Button size="small">Learn More</Button>
       </Card>
-      
+
     </Box>
   )
 }

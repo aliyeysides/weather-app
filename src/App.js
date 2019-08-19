@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from '@material-ui/core/Box'
 import './App.css'
@@ -13,19 +13,18 @@ function onFormSubmit(e) {
 
 function App() {
   const [data, setData] = useState({ hits: [] });
+  const [isMetric, setMetric] = useState(true);
   // const [cities, setCities] = useState({city: "Philadelphia", country: "USA"})
 
-  const [cities, setCities] = useState([{city: "Philadelphia", country: "USA"}])
+  const [cities, setCities] = useState([{city: "Seoul", country: "South Korea"}, {city: "Philadelphia", country: "USA"}])
 
   useEffect(() => {
     //const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
-
     const URL = 'http://api.openweathermap.org/data/2.5/weather?q=Philadelphia,US&appid=' + process.env.REACT_APP_WEATHER_API_KEY
     const fetchData = async () => {
       const result = await axios(
         URL,
       );
-      console.log(result.data)
       setData(result.data);
     };
 
@@ -33,6 +32,7 @@ function App() {
   }, []);
 
   const getWeather = async (e) => {
+    console.log('hello')
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
@@ -41,11 +41,12 @@ function App() {
     }
   }
 
+  //, setCities, isMetric, setMetric
   return (
     <Box className = "Box">
-        <Form getWeather = { getWeather }/>
-        <CardList cities = { cities }/>
-        <CardList cities = { cities }/>
+        <Form getWeather={ getWeather } setCities={ setCities } isMetic={ isMetric } setMetric={ setMetric }/>
+        <CardList cities={ cities }/>
+        <h1>{ isMetric.toString() }</h1>
     </Box>
   );
 }

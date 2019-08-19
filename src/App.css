@@ -7,10 +7,15 @@
 
 }
 
+.MuiButton-root {
+  margin-left: 10px;
+}
+
 body {
   background-color: #F0EAD6;
 }
-* { 
+* {
+  display: 'flex';
   font-family: 'Montserrat', sans-serif;
-  margin: 10px;
+  /* margin: 10px; */
 }
