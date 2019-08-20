@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from '@material-ui/core/Box'
-import './App.css'
-import CardList from './components/CardList';
-import Form from './components/Form';
 import Grid from '@material-ui/core/Grid';
+import Form from './components/Form/Form';
+import WeatherCards from './components/WeatherCards/WeatherCards';
+import './App.css'
 
 function onFormSubmit(e) {
   e.preventDefault()
@@ -31,10 +31,9 @@ function App() {
 
   function toggleMetric() {
     setMetric(!isMetric)
-    console.log("togglemetric")
   }
+
   const getWeather = async (e) => {
-    console.log('hello')
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
@@ -47,7 +46,7 @@ function App() {
   return (
     <Box className = "Box" >
         <Form getWeather={ getWeather } setCities={ setCities } toggleMetric={ toggleMetric }/>
-        <CardList cities={ cities }/>
+        <WeatherCards cities={ cities }/>
     </Box>
   );
 }
