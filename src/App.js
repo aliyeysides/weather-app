@@ -14,8 +14,6 @@ function onFormSubmit(e) {
 function App() {
   const [data, setData] = useState({ hits: [] });
   const [isMetric, setMetric] = useState(true);
-  // const [cities, setCities] = useState({city: "Philadelphia", country: "USA"})
-
   const [cities, setCities] = useState([{city: "Seoul", country: "South Korea"}, {city: "Philadelphia", country: "USA"}])
 
   useEffect(() => {
@@ -31,6 +29,10 @@ function App() {
     fetchData();
   }, []);
 
+  function toggleMetric() {
+    setMetric(!isMetric)
+    console.log("togglemetric")
+  }
   const getWeather = async (e) => {
     console.log('hello')
     e.preventDefault();
@@ -44,9 +46,8 @@ function App() {
   //, setCities, isMetric, setMetric
   return (
     <Box className = "Box" >
-        <Form getWeather={ getWeather } setCities={ setCities } isMetic={ isMetric } setMetric={ setMetric }/>
+        <Form getWeather={ getWeather } setCities={ setCities } toggleMetric={ toggleMetric }/>
         <CardList cities={ cities }/>
-        <h1>{ isMetric.toString() }</h1>
     </Box>
   );
 }
