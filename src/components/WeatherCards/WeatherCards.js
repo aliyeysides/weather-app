@@ -8,11 +8,14 @@ import './WeatherCards.css'
 function WeatherCards(props) {
   useEffect(() => {
     createCards()
-
+    fetchAPI()
   }, []);
 
+  function fetchAPI() {
+
+  }
   function createCards() {
-    // props.cities.map(x => console.log(x))
+    props.cities.map((x) => console.log(x))
   }
 
   return (

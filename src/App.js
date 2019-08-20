@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from '@material-ui/core/Box'
-import Grid from '@material-ui/core/Grid';
 import Form from './components/Form/Form';
 import WeatherCards from './components/WeatherCards/WeatherCards';
 import './App.css'
-
-function onFormSubmit(e) {
-  e.preventDefault()
-  console.log('You typed')
-}
 
 function App() {
   const [data, setData] = useState({ hits: [] });
@@ -24,13 +18,15 @@ function App() {
         URL,
       );
       setData(result.data);
+      console.log(result.data)
+      console.log('hi')
     };
 
     fetchData();
   }, []);
 
   function toggleMetric() {
-    setMetric(!isMetric)
+    setMetric(!isMetric);
   }
 
   const getWeather = async (e) => {
@@ -45,7 +41,7 @@ function App() {
   //, setCities, isMetric, setMetric
   return (
     <Box className = "Box" >
-        <Form getWeather={ getWeather } setCities={ setCities } toggleMetric={ toggleMetric }/>
+        <Form getWeather={ getWeather } setCities={ setCities } isMetric = { isMetric } toggleMetric={ toggleMetric }/>
         <WeatherCards cities={ cities }/>
     </Box>
   );

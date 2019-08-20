@@ -1,0 +1,9 @@
+.CityInputContainer {
+    display: flex;
+    align-items: center;
+}
+
+.UnitToggleContainer {
+    display: flex;
+    align-items: center;
+}
