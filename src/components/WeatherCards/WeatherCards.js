@@ -14,12 +14,18 @@ function WeatherCards(props) {
   function fetchAPI() {
 
   }
+  function renderItems() {
+    return props.cities.map((city, index) => {
+      return (<Card ><p>Created with renderItems</p><Typography>Text 1</Typography>
+        </Card>)
+    });
+  }
   function createCards() {
     props.cities.map((x) => console.log(x))
   }
 
   return (
-    <Box display="flex">
+    <Box className="WeatherCardsContainer" display="flex">
       <Card >
         <p>Philadelphia, PA</p>
         <div>&nbsp;</div>
@@ -27,11 +33,7 @@ function WeatherCards(props) {
         <div>&nbsp;</div>
         <Button size="small">Learn More</Button>
       </Card>
-      <Card >
-      <p>Card Component</p>
-      <Button size="small">Learn More</Button>
-      </Card>
-
+      { renderItems() }
     </Box>
   )
 }
