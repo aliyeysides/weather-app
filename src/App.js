@@ -3,6 +3,8 @@ import axios from 'axios';
 import Box from '@material-ui/core/Box'
 import Form from './components/Form/Form';
 import WeatherCards from './components/Weather/WeatherCards';
+import WeatherList from './components/Weather/WeatherList';
+
 import './App.css'
 
 function App() {
@@ -40,9 +42,11 @@ function App() {
 
   //, setCities, isMetric, setMetric
   return (
-    <Box className = "Box" >
-        <Form getWeather={ getWeather } setCities={ setCities } isMetric = { isMetric } toggleMetric={ toggleMetric }/>
-        <WeatherCards cities={ cities }/>
+    <Box className = "Box"  >
+        <Form getWeather={ getWeather } setCities={ setCities } isMetric={ isMetric } toggleMetric={ toggleMetric }/>
+        <WeatherCards cities={ cities } isMetric={ isMetric }/>
+        <WeatherList cities={ cities } isMetric={ isMetric }/>
+
     </Box>
   );
 }
