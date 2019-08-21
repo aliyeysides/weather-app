@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Box from '@material-ui/core/Box'
 import Form from './components/Form/Form';
-import WeatherCards from './components/WeatherCards/WeatherCards';
+import WeatherCards from './components/Weather/WeatherCards';
 import './App.css'
 
 function App() {
