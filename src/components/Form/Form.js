@@ -15,7 +15,7 @@ function Form(props) {
           <div className="CityInputContainer" >
             <TextField type="text" name="city" placeholder="City" />
             <TextField type="text" name="country" placeholder="Country" />
-            <Button type="submit" variant="contained" size="small">Submit</Button>
+            <Button type="submit" variant="contained" color="primary" size="small">Submit</Button>
           </div>
           <div className="UnitToggleContainer">
             <Typography variant="h6" noWrap>{ props.isMetric ? 'Metric' : 'Imperial' }</Typography>

@@ -26,7 +26,8 @@ function WeatherCard(props) {
     <Card >
       <p>{props.location.city}, {props.location.country}</p>
       <p>{props.isMetric.toString()}</p>
-      <p>{props.index}</p>
+      <p>{props.index} {props.isMetric ? 'Metric' : 'Imperial'}</p>
+
       <Typography>Text 1</Typography>
     </Card>
   )
