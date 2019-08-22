@@ -13,12 +13,19 @@ function App() {
     setMetric(!isMetric);
   }
 
+  function throwError() {
+    alert("test error");
+  }
+
   const getWeather = async (e) => {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     if (city && country) {
-    console.log("New location added - City:", city, "Country:",  country)
+      console.log("New location added - City:", city, "Country:",  country)
+      setLocations(([...locations, {city: city, country: "US"}]))
+      console.log(locations)
+      throwError()
     }
   }
   
