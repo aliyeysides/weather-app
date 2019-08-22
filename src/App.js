@@ -6,15 +6,19 @@ import WeatherList from './components/Weather/WeatherList';
 import './App.css'
 
 function App() {
+  const testCity1 = {city: "Seattle", country: "US"} 
+  const testCity2 = {city: "Philadelphia", country: "US"}
   const [isMetric, setMetric] = useState(true);
-  const [locations, setLocations] = useState([{city: "Seattle", country: "US"}, {city: "Philadelphia", country: "US"}])
-
+  const [locations, setLocations] = useState([testCity1, testCity2]);
+  const [error, setError] = useState(null);
   function toggleMetric() {
     setMetric(!isMetric);
   }
 
-  function throwError() {
-    alert("test error");
+  function throwError(err) {
+    // TODO: Errors shown in a pop up 
+    alert(err);
+    console.log(err)
   }
 
   const getWeather = async (e) => {
@@ -22,10 +26,14 @@ function App() {
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     if (city && country) {
-      console.log("New location added - City:", city, "Country:",  country)
       setLocations(([...locations, {city: city, country: "US"}]))
+      console.log("New location added - City:", city, "Country:",  country)
       console.log(locations)
-      throwError()
+    }
+    else {
+      const errorMsg = "Please fill in the fields"
+      throwError(errorMsg)
+      setError(errorMsg)
     }
   }
   
