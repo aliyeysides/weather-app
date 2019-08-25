@@ -11,6 +11,7 @@ function App() {
   const [isMetric, setMetric] = useState(true);
   const [locations, setLocations] = useState([testCity1, testCity2]);
   const [error, setError] = useState(null);
+
   function toggleMetric() {
     setMetric(!isMetric);
   }
@@ -40,7 +41,7 @@ function App() {
   return (
     <Box className = "Box"  >
         <Form getWeather={ getWeather } setLocations={ setLocations } isMetric={ isMetric } toggleMetric={ toggleMetric }/>
-        <WeatherList locations={ locations } isMetric={ isMetric }/>
+        <WeatherList locations={ locations } isMetric={ isMetric } throwError={ throwError }/>
     </Box>
   );
 }

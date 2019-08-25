@@ -6,7 +6,7 @@ import './WeatherList.css'
 function WeatherCards(props) {
   function renderItems() {
     return props.locations.map((location, index) => {
-      return (<WeatherCard location={location} key={index} index={index} isMetric={ props.isMetric }/>
+      return (<WeatherCard location={location} key={index} index={index} isMetric={ props.isMetric } throwError={ props.throwError }/>
         )
     });
   }

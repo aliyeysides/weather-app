@@ -12,7 +12,7 @@ function Form(props) {
     <AppBar position="static" color="default">
       <ToolBar>
         <form className="form" onSubmit={ props.getWeather }>
-          <div className="CityInputContainer" >
+          <div className="LocationInputContainer" >
             <TextField type="text" name="city" placeholder="City" />
             <TextField type="text" name="country" placeholder="Country" />
             <Button type="submit" variant="contained" color="primary" size="small">Submit</Button>
