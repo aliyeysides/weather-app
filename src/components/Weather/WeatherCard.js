@@ -18,15 +18,12 @@ function WeatherCard(props) {
   }, []);
   
   function convertTemperature(temp) {
-    console.log("unit", props.isMetric)
     if (props.isMetric) {
       return Math.round(temp - 273.15)
     }
-    
     if (!props.isMetric) {
       return Math.round((temp - 273.15) * 9/5 + 32)
     }
-  
   }
 
   const URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + props.location.city + ',' + props.location.country + '&appid=' + process.env.REACT_APP_WEATHER_API_KEY
@@ -36,13 +33,13 @@ function WeatherCard(props) {
     );
     console.log(result.data)
     let API_response = result.data
-    console.log(API_response.weather[0].description)
     setData(API_response.main.temp)
     setIcon(API_response.weather[0].icon)
+    console.log("setIcon:", icon)
   };
 
   return (
-    <Card >
+    <Card className="WeatherCard">
       <p>{props.location.city}, {props.location.country}</p>
       <CardMedia>
         <p>icon: {icon}</p>

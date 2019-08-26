@@ -9,7 +9,7 @@ function App() {
   const testCity1 = {city: "Seattle", country: "US"} 
   const testCity2 = {city: "Philadelphia", country: "US"}
   const [isMetric, setMetric] = useState(true);
-  const [locations, setLocations] = useState([testCity1, testCity2]);
+  const [locations, setLocations] = useState([testCity1, testCity2, testCity2, testCity2]);
   const [error, setError] = useState(null);
 
   function toggleMetric() {
