@@ -19,6 +19,7 @@ function App() {
   function throwError(err) {
     // TODO: Errors shown in a pop up 
     alert(err);
+    setError(err)
     console.log(err)
   }
 
@@ -27,14 +28,13 @@ function App() {
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;
     if (city && country) {
-      setLocations(([...locations, {city: city, country: "US"}]))
+      setLocations(([...locations, {city: city, country: country}]))
       console.log("New location added - City:", city, "Country:",  country)
       console.log(locations)
     }
     else {
       const errorMsg = "Please fill in the fields"
       throwError(errorMsg)
-      setError(errorMsg)
     }
   }
   

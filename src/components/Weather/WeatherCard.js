@@ -8,16 +8,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 
 import './WeatherCard.css'
 
-function convertTemperature(temp, unit) {
-  if (unit=='metric') {
-    return temp - 273.15
-  }
-  
-  if (unit=='imperial') {
-    return temp - 457.87
-  }
 
-}
 function WeatherCard(props) {
   const [data, setData] = useState();
   const [icon, setIcon] = useState();
@@ -26,6 +17,18 @@ function WeatherCard(props) {
     fetchAPI()
   }, []);
   
+  function convertTemperature(temp) {
+    console.log("unit", props.isMetric)
+    if (props.isMetric) {
+      return Math.round(temp - 273.15)
+    }
+    
+    if (!props.isMetric) {
+      return Math.round((temp - 273.15) * 9/5 + 32)
+    }
+  
+  }
+
   let t = 2
   const URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + props.location.city + ',' + props.location.country + '&appid=' + process.env.REACT_APP_WEATHER_API_KEY
   const fetchAPI = async () => {
@@ -42,12 +45,9 @@ function WeatherCard(props) {
   return (
     <Card >
       <p>{props.location.city}, {props.location.country}</p>
-      <p>temperature: {data}</p>
       <p>icon: {icon}</p>
-
-      <p>{props.index} {props.isMetric ? 'Metric' : 'Imperial'}</p>
-      <p>{props.index}</p>
-      <p>convert {convertTemperature(data, 'Metric')}</p>
+      <p>index: {props.index}</p>
+      <p>temp: {convertTemperature(data)} {props.isMetric ? 'C' : 'F'}</p>
       <Button variant="outlined">Expand</Button>
     </Card>
   )

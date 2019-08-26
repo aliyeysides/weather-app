@@ -18,7 +18,7 @@ function Form(props) {
             <Button type="submit" variant="contained" color="primary" size="small">Submit</Button>
           </div>
           <div className="UnitToggleContainer">
-            <Typography variant="h6" noWrap>{ props.isMetric ? 'Metric' : 'Imperial' }</Typography>
+            <Typography variant="h6">{ props.isMetric ? 'Metric' : 'Imperial' }</Typography>
             <Switch onChange={(e) => props.toggleMetric() } color="primary" />
           </div>
         </form>
