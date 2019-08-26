@@ -20,7 +20,7 @@ function App() {
     // TODO: Errors shown in a pop up 
     alert(err);
     setError(err)
-    console.log(err)
+    console.log(error)
   }
 
   const getWeather = async (e) => {

@@ -29,7 +29,6 @@ function WeatherCard(props) {
   
   }
 
-  let t = 2
   const URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + props.location.city + ',' + props.location.country + '&appid=' + process.env.REACT_APP_WEATHER_API_KEY
   const fetchAPI = async () => {
     const result = await axios(
@@ -45,10 +44,17 @@ function WeatherCard(props) {
   return (
     <Card >
       <p>{props.location.city}, {props.location.country}</p>
-      <p>icon: {icon}</p>
-      <p>index: {props.index}</p>
-      <p>temp: {convertTemperature(data)} {props.isMetric ? 'C' : 'F'}</p>
-      <Button variant="outlined">Expand</Button>
+      <CardMedia>
+        <p>icon: {icon}</p>
+        <p><i class="wi wi-day-fog"></i><i class="wi wi-flood"></i><i class="wi wi-day-hail"></i></p> 
+      </CardMedia>
+      <CardContent>
+        <p>index: {props.index}</p>
+        <p>temp: {convertTemperature(data)} {props.isMetric ? 'C' : 'F'}</p>  
+      </CardContent>
+      <CardMedia> 
+        <Button variant="outlined">Expand</Button>
+      </CardMedia>
     </Card>
   )
 }
