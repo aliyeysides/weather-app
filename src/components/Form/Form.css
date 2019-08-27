@@ -1,3 +1,6 @@
+.AppBar {
+    margin: 10px;
+}
 .CityInputContainer {
     display: flex;
     align-items: center;

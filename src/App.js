@@ -6,10 +6,9 @@ import WeatherList from './components/Weather/WeatherList';
 import './App.css'
 
 function App() {
-  const testCity1 = {city: "Seattle", country: "US"} 
-  const testCity2 = {city: "Philadelphia", country: "US"}
+  const testCities = [{city: "Seattle", country: "US"}, {city: "Philadelphia", country: "US"}]
   const [isMetric, setMetric] = useState(true);
-  const [locations, setLocations] = useState([testCity1, testCity2, testCity2, testCity2]);
+  const [locations, setLocations] = useState(testCities);
   const [error, setError] = useState(null);
 
   function toggleMetric() {
@@ -39,7 +38,7 @@ function App() {
   }
   
   return (
-    <Box className = "Box"  >
+    <Box className = "Box">
         <Form getWeather={ getWeather } setLocations={ setLocations } isMetric={ isMetric } toggleMetric={ toggleMetric }/>
         <WeatherList locations={ locations } isMetric={ isMetric } throwError={ throwError }/>
     </Box>

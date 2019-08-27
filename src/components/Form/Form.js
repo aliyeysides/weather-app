@@ -9,7 +9,7 @@ import './Form.css'
 
 function Form(props) {
   return (
-    <AppBar position="static" color="default">
+    <AppBar className="AppBar" position="static" color="default">
       <ToolBar>
         <form className="form" onSubmit={ props.getWeather }>
           <div className="LocationInputContainer" >
