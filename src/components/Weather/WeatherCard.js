@@ -9,6 +9,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import './WeatherCard.css'
 
 function WeatherCard(props) {
+  const URL = "http://api.openweathermap.org/data/2.5/weather?q=" + props.location.city + "," + props.location.country + "&appid=" + process.env.REACT_APP_OPENWEATHERMAP_API_KEY
   // variables are structured to follow the API response
   const [data, setData] = useState({ hits: []})
   const [coord, setCoord] = useState({lon: 0, lat: 0});
@@ -24,21 +25,39 @@ function WeatherCard(props) {
   const [temperature, setTemperature] = useState();
   const [icon, setIcon] = useState();
   const [weatherID, setWeatherID] = useState();
+  var t;
 
   
   useEffect(() => {
-    fetchAPI();
+    const fetchData = async () => {
+      const result = await axios(
+        URL,
+      );
+      console.log(result.data)
+      setData(result.data);
+      console.log(data.hits)
+      console.log(t)
+      var API_response = result.data
+      setCoord({lon: API_response.coord.lon, lat: API_response.coord.lat})
+      setWeather(API_response.weather[0].id)
+      // setWeather(API_response.main.temp)
+      setTemperature(API_response.main.temp)
+      setIcon(API_response.weather[0].icon)
+      setTimezone(API_response.timezone)
+    }
+    fetchData();
+    printAll();
   }, []);
   
   function printAll() {
-    console.log(coord.lat, coord.lon, weather, main, sys, timezone, weatherID)
+    console.log("Data fetched for", props.location.city, "-", coord, weather, main, sys, timezone, weatherID)
   }
 
   function convertIcon(icon)  {
-    let convertedIcon = "wi-";
+    var convertedIcon = "wi-";
     if (icon) {
-      let condition = icon.substring(0,2);
-      let time = icon.substring(2);
+      var condition = icon.substring(0,2);
+      var time = icon.substring(2);
       if (time === 'd') {
         convertedIcon += "day";
       }
@@ -53,12 +72,6 @@ function WeatherCard(props) {
       }
     }
     return <i className={convertedIcon}></i>
-
-    // if (icon === '01n') {
-    //   return <i class="wi wi-day-sunny"></i>
-    // }
-
-    // return <i className="wi wi-day-sunny"></i>
   }
 
   function convertTemperature(temp) {
@@ -70,25 +83,6 @@ function WeatherCard(props) {
     }
   }
 
-  const URL = "http://api.openweathermap.org/data/2.5/weather?q=" + props.location.city + "," + props.location.country + "&appid=" + process.env.REACT_APP_OPENWEATHERMAP_API_KEY
-  async function fetchAPI() {
-    const result = await axios(
-      URL,
-    );
-    setData(result.data);
-    console.log(data.hits)
-    console.log(result.data)
-    let API_response = result.data
-    setCoord({lon: API_response.coord.lon, lat: API_response.coord.lat})
-    setWeather(API_response.weather[0].id)
-    console.log(API_response.weather)
-    // setWeather(API_response.main.temp)
-    setTemperature(API_response.main.temp)
-    setIcon(API_response.weather[0].icon)
-    setTimezone(API_response.timezone)
-    printAll()
-  };
-
   return (
     <Card className="WeatherCard">
       <p>{props.location.city}, {props.location.country}</p>
@@ -96,7 +90,7 @@ function WeatherCard(props) {
         {convertIcon(icon)}
       </CardMedia>
       <CardContent>
-        <p><i className="wi wi-thermometer"></i> : {convertTemperature(temperature)} {props.isMetric ? <i className="wi wi-celsius"></i> : <i className="wi wi-fahrenheit"></i>}</p>  
+        <p><i className="wi wi-thermometer"></i> - {convertTemperature(temperature)} {props.isMetric ? <i className="wi wi-celsius"></i> : <i className="wi wi-fahrenheit"></i>}</p>  
         <p>Weather: {weather}</p>
       </CardContent>
       <CardActions> 
