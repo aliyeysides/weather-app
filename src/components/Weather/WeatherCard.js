@@ -10,13 +10,28 @@ import './WeatherCard.css'
 
 
 function WeatherCard(props) {
-  const [data, setData] = useState();
+  const [temperature, setTemperature] = useState();
   const [icon, setIcon] = useState();
   
   useEffect(() => {
     fetchAPI()
   }, []);
   
+  function convertIcon(icon) {
+    if (icon === '01n') {
+      return <i class="wi wi-day-sunny"></i>
+    }
+    else if (icon === '02n') {
+      return 'wi-day-cloudy';
+    } 
+
+    if (icon === '01d') {
+      return 'wi-day-sunny';
+    }
+    else if (icon === '02d') {
+      return 'wi-day-cloudy';
+    } 
+  }
   function convertTemperature(temp) {
     if (props.isMetric) {
       return Math.round(temp - 273.15)
@@ -33,7 +48,7 @@ function WeatherCard(props) {
     );
     console.log(result.data)
     let API_response = result.data
-    setData(API_response.main.temp)
+    setTemperature(API_response.main.temp)
     setIcon(API_response.weather[0].icon)
     console.log("setIcon:", icon)
   };
@@ -42,12 +57,11 @@ function WeatherCard(props) {
     <Card className="WeatherCard">
       <p>{props.location.city}, {props.location.country}</p>
       <CardMedia>
-        <p>icon: {icon}</p>
-        <p><i class="wi wi-day-fog"></i><i class="wi wi-flood"></i><i class="wi wi-day-hail"></i></p> 
+        <p>icon: {convertIcon(icon)}</p>
       </CardMedia>
       <CardContent>
         <p>index: {props.index}</p>
-        <p>temp: {convertTemperature(data)} {props.isMetric ? 'C' : 'F'}</p>  
+        <p><i class="wi wi-thermometer"></i> : {convertTemperature(temperature)} {props.isMetric ? 'C' : 'F'}</p>  
       </CardContent>
       <CardMedia> 
         <Button variant="outlined">Expand</Button>
