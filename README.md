@@ -12,7 +12,7 @@ git clone https://github.com/sungyeonu/weather-app.git
 
 2. Create a .env file with this line:
 ```
-REACT_APP_WEATHER_API_KEY = d9d324394cc3c0c8114f95f48bf87765
+OPENWEATHERMAP_API_KEY = d9d324394cc3c0c8114f95f48bf87765
 ```
 
 Or you can get your own key at https://openweathermap.org/api
