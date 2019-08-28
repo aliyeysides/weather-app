@@ -5,7 +5,6 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-
 import './WeatherCard.css'
 
 function WeatherCard(props) {
@@ -71,8 +70,8 @@ function WeatherCard(props) {
         convertedIcon += ""
       }
     }
-    return <i className={convertedIcon}></i>
-  }
+    return <i className="wi wi-day-fog"></i>
+   }
 
   function convertTemperature(temp) {
     if (props.isMetric) {
@@ -84,15 +83,19 @@ function WeatherCard(props) {
   }
 
   return (
-    <Card className="WeatherCard">
-      <p>{props.location.city}, {props.location.country}</p>
-      <CardMedia>
-        {convertIcon(icon)}
-      </CardMedia>
-      <CardContent>
-        <p><i className="wi wi-thermometer"></i> - {convertTemperature(temperature)} {props.isMetric ? <i className="wi wi-celsius"></i> : <i className="wi wi-fahrenheit"></i>}</p>  
-        <p>Weather: {weather}</p>
-      </CardContent>
+    <Card className="weather-card">
+      <div className="city-and-country">{props.location.city}, {props.location.country}</div>
+        <div className="temperature-box">
+          <div className="icon">
+            {convertIcon(icon)}
+          </div>
+          <div className="temperature">
+            
+            {convertTemperature(temperature)} 
+            {props.isMetric ? <i className="wi wi-celsius"></i> : <i className="wi wi-fahrenheit"></i>}
+          </div>
+        </div>
+        <p>Weather: {weather}</p>  
       <CardActions> 
         <Button variant="outlined">Expand</Button>
         index: {props.index}

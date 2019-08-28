@@ -1,12 +1,11 @@
-.AppBar {
+.app-bar {
     margin: 10px;
 }
-.CityInputContainer {
+.location-input {
     display: flex;
     align-items: center;
 }
 
-.UnitToggleContainer {
+.unit-toggle {
     display: flex;
-    align-items: center;
 }

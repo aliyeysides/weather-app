@@ -9,15 +9,15 @@ import './Form.css'
 
 function Form(props) {
   return (
-    <AppBar className="AppBar" position="static" color="default">
+    <AppBar className="app-bar" position="static" color="default">
       <ToolBar>
         <form className="form" onSubmit={ props.getWeather }>
-          <div className="LocationInputContainer" >
+          <div className="location-input" >
             <TextField type="text" name="city" placeholder="City" />
             <TextField type="text" name="country" placeholder="Country" />
             <Button type="submit" variant="contained" color="primary" size="small">Submit</Button>
           </div>
-          <div className="UnitToggleContainer">
+          <div className="unit-toggle">
             <Typography variant="h6">{ props.isMetric ? 'Metric' : 'Imperial' }</Typography>
             <Switch onChange={(e) => props.toggleMetric() } color="primary" />
           </div>

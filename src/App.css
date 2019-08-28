@@ -1,20 +1,12 @@
-
-
-
-.MuiButton-root {
-  margin-left: 10px;
-}
-
 .form {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 100%;
 }
-
+/* 
 .inputContainer {
   padding: 5px;
-}
+} */
 
 * {
   font-family: 'Montserrat', sans-serif;
