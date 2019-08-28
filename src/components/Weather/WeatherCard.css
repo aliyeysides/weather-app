@@ -1,23 +1,18 @@
 .weather-card {
   font-size: 20px;
   height: 360px;
-  width: 270px;
+  width: 360px;
   margin: 10px;
-  padding: 10px;
-}
-.icon {
-  float: left;
-}
-.temperature {
-  float: right;
-}
-p {
-  margin: 0;
+  padding: 20px;
 }
 
 .temperature-box {
-  font-size: 64px;
+  font-size: 72px;
 }
 .weather-info {
 
+}
+
+p {
+  margin: 0;
 }

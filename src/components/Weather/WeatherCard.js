@@ -3,18 +3,38 @@ import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import Slider from '@material-ui/core/Slider';
 import './WeatherCard.css'
 
+const marks = [
+  {
+    value: 0,
+    label: "0h",
+  },
+  {
+    value: 3,
+    label: "3h",
+  },
+  {
+    value: 6,
+    label: "6h",
+  },
+  {
+    value: 9,
+    label: "9h",
+  },
+]
+function valuetext(value) {
+  return `${value} h`;
+}
 function WeatherCard(props) {
+  //take forecast next time
   const URL = "http://api.openweathermap.org/data/2.5/weather?q=" + props.location.city + "," + props.location.country + "&appid=" + process.env.REACT_APP_OPENWEATHERMAP_API_KEY
   // variables are structured to follow the API response
   const [data, setData] = useState({ hits: []})
   const [coord, setCoord] = useState({lon: 0, lat: 0});
   const [weather, setWeather] = useState();
   const [main, setMain] = useState();
-  // const [visibility, setVisibility] = useState();
   // const [wind, setWind] = useState();
   // const [clouds, setClouds] = useState();
   // const [dt, setDt] = useState();
@@ -25,7 +45,6 @@ function WeatherCard(props) {
   const [icon, setIcon] = useState();
   const [weatherID, setWeatherID] = useState();
   var t;
-
   
   useEffect(() => {
     const fetchData = async () => {
@@ -87,20 +106,29 @@ function WeatherCard(props) {
       <div className="city-and-country">{props.location.city}, {props.location.country}</div>
         <div className="temperature-box">
           <div className="icon">
-            {convertIcon(icon)}
           </div>
           <div className="temperature">
-            
+          {convertIcon(icon)}
+
             {convertTemperature(temperature)} 
             {props.isMetric ? <i className="wi wi-celsius"></i> : <i className="wi wi-fahrenheit"></i>}
           </div>
         </div>
-        <p>Weather: {weather}</p>  
-      <CardActions> 
-        <Button variant="outlined">Expand</Button>
-        index: {props.index}
-      </CardActions> 
-    </Card>
+        <div> Weather: {weather} / index: {props.index}
+</div>
+
+        <div className="sliders">
+          <p>Time - 00:00:00</p>
+          <p>Set Day</p>
+          <Slider defaultValue={1} getAreaValueText={valuetext} aria-labelledby="discrete-slider" valueLabelDisplay="auto" step={1} marks min={1} max={5}></Slider>  
+          <p>Set Hours</p>
+          <Slider 
+            defaultValue={3} getAreaValueText={valuetext} aria-labelledby="discrete-slider" valueLabelDisplay="auto"
+            step={3} 
+            marks min={0} max={21}>
+          </Slider>
+        </div>
+          </Card>
   )
 }
 

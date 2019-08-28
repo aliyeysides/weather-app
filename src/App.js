@@ -6,9 +6,9 @@ import WeatherList from './components/Weather/WeatherList';
 import './App.css'
 
 function App() {
-  const testCities = [{city: "Seattle", country: "US"}, {city: "Philadelphia", country: "US"}]
+  const testCities = [{city: "Philadelphia", country: "US"}, {city: "Seoul", country: "KR"}]; // customize default locations heree
   const [isMetric, setMetric] = useState(true);
-  const [locations, setLocations] = useState(testCities);
+  const [locations, setLocations] = useState(testCities); // omit testCities to disable default locations
   const [error, setError] = useState(null);
 
   function toggleMetric() {
