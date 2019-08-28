@@ -19,14 +19,12 @@ Or you can get your own key at https://openweathermap.org/api
 
 ## Available Scripts
 
-In the project directory, install project dependencies by running:
+In the project directory, install project dependencies by running: `yarn install` or `npm install`
 
-### `yarn install` or `npm install`
+Then, run the app in development mode: `yarn start` or `npm start`
 
-Then, run the app in development mode:
+Runs the app in the development mode.
 
-### `yarn start` or `npm start`
-Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Learn More
