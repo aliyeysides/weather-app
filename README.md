@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Environment setup
 
-1. Clone this repo to your local machine by using
+1. Clone this repo to your local machine by using:
 `
 git clone https://github.com/sungyeonu/weather-app.git
 `
@@ -19,9 +19,11 @@ Or you can get your own key at https://openweathermap.org/api
 
 ## Available Scripts
 
-In the project directory, install project dependencies by running: `yarn install` or `npm install`
+In the project directory, install project dependencies by running: 
+`yarn install` or `npm install`
 
-Then, run the app in development mode: `yarn start` or `npm start`
+Then, run the app in development mode: 
+`yarn start` or `npm start`
 
 Runs the app in the development mode.
 
