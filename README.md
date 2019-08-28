@@ -3,7 +3,7 @@ This project uses:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Environment setup
+## Environment setup
 
 1. Clone this repo to your local machine by using
 `
