@@ -51,10 +51,10 @@ function WeatherCard(props) {
       const result = await axios(
         URL,
       );
-      console.log(result.data)
+      // console.log(result.data)
       setData(result.data);
-      console.log(data.hits)
-      console.log(t)
+      // console.log(data.hits)
+      // console.log(t)
       var API_response = result.data
       setCoord({lon: API_response.coord.lon, lat: API_response.coord.lat})
       setWeather(API_response.weather[0].id)
@@ -68,7 +68,7 @@ function WeatherCard(props) {
   }, []);
   
   function printAll() {
-    console.log("Data fetched for", props.location.city, "-", coord, weather, main, sys, timezone, weatherID)
+    // console.log("Data fetched for", props.location.city, "-", coord, weather, main, sys, timezone, weatherID)
   }
 
   function convertIcon(icon)  {
