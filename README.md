@@ -24,3 +24,21 @@ Or you can get your own key at https://openweathermap.org/api
 `yarn start` or `npm start`
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Card Contents
+- CardHeader.js 
+  - City, Country
+  - Delete Icon
+- Forecast.js
+  - Weather Icon
+  - Temperature
+  - Minimum temperature, Maximum temperature (this deviation is possible for larger cities and megapolises geographically expanded)
+  - Humidity, %
+  - Cloudiness, %
+  - Rain, volume
+- TimeForm.js
+  - Local Time
+  - Time deviation
+  - Days slider
+  - Hours slider
+  
