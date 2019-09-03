@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Box from '@material-ui/core/Box'
 import Form from './components/Form/Form';
 import WeatherList from './components/Weather/WeatherList';
-
 import './App.css'
 
 function App() {
@@ -22,7 +21,7 @@ function App() {
     console.log(error)
   }
 
-  const getWeather = async (e) => {
+  async function getWeather(e) {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;

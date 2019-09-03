@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@material-ui/core/Box'
 import WeatherCard from './WeatherCard'
+
 import './WeatherList.css'
 
 function WeatherCards(props) {
@@ -12,9 +13,11 @@ function WeatherCards(props) {
   }
 
   return (
-    <Box className="WeatherCardsContainer" display="flex">
-      { renderItems() }
-    </Box>
+    <div>
+      <Box className="WeatherCardsContainer" display="flex">
+        { renderItems() }
+      </Box>
+    </div>
   )
 }
 
