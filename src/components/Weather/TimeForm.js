@@ -1,22 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Slider } from '@material-ui/core/';
+import './TimeForm.css';
 
-function valuetext(value) {
-  return `${value} h`;
+// const date = today.getFullYear() + '-' + month +'-'+today.getDate();
+function getDate() {
+  const today = new Date();
+  var month = today.getMonth();
+  if (today.getMonth() + 1 < 10) {
+    month = "0" + (today.getMonth() + 1)
+}
+  return today.getFullYear() + '-' + month +'-'+today.getDate()
 }
 
-const today = new Date();
-const date = today.getFullYear() + '-' + (today.getMonth()+1)+'-'+today.getDate();
+function TimeForm(props) {
+  const [hours, setHours] = useState(0)
+  const [days, setDays] = useState(0)
 
-function TimeForm() {
+  useEffect(() => {
+    props.setTotalHours((days * 24) + hours)
+  });
+
   return (
     <div className="time-form">
-      <p className="current-time">Current Time - {date}</p>
-      <p>Set Day</p>
-      <Slider defaultValue={1} getAreaValueText={valuetext} aria-labelledby="discrete-slider" valueLabelDisplay="auto" step={1} marks min={1} max={5}></Slider>  
+      {(hours === 0 && days === 0) ? (
+        <p className="current-time">Local Time - { getDate() }</p>) : 
+        <p className="current-time">Forecast after {days}d {hours}h</p> }
+      <p>Set Days</p>
+      <Slider
+        onChange={ (e, val) => setDays(val)}
+        defaultValue={0} 
+        aria-labelledby="discrete-slider" 
+        valueLabelDisplay="auto" 
+        step={1} 
+        marks min={0} max={4}></Slider>  
       <p>Set Hours</p>
       <Slider 
-        defaultValue={3} getAreaValueText={valuetext} aria-labelledby="discrete-slider" valueLabelDisplay="auto"
+        onChange={ (e, val) => setHours(val)}
+        defaultValue={0} 
+        aria-labelledby="discrete-slider" 
+        valueLabelDisplay="auto"
         step={3} 
         marks min={0} max={21}>
       </Slider>

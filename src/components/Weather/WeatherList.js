@@ -25,9 +25,7 @@ function WeatherCards(props) {
       <Box className="WeatherCardsContainer" display="flex">
         { testItems() }
       </Box>
-      <Box className="WeatherCardsContainer" display="flex">
-        { renderItems() }
-      </Box>
+
       
     </div>
   )

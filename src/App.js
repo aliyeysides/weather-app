@@ -22,7 +22,7 @@ function App() {
     console.log(error)
   }
 
-  const getWeather = async (e) => {
+  async function getWeather(e) {
     e.preventDefault();
     const city = e.target.elements.city.value;
     const country = e.target.elements.country.value;

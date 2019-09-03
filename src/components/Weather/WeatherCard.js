@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
 import Slider from '@material-ui/core/Slider';
 import './WeatherCard.css'
 
@@ -34,17 +32,9 @@ function WeatherCard(props) {
   const [data, setData] = useState({ hits: []})
   const [coord, setCoord] = useState({lon: 0, lat: 0});
   const [weather, setWeather] = useState();
-  const [main, setMain] = useState();
-  // const [wind, setWind] = useState();
-  // const [clouds, setClouds] = useState();
-  // const [dt, setDt] = useState();
-  const [sys, setSys] = useState();
-  const [timezone, setTimezone] = useState();
 
   const [temperature, setTemperature] = useState();
   const [icon, setIcon] = useState();
-  const [weatherID, setWeatherID] = useState();
-  var t;
   
   useEffect(() => {
     const fetchData = async () => {
@@ -53,15 +43,10 @@ function WeatherCard(props) {
       );
       // console.log(result.data)
       setData(result.data);
-      // console.log(data.hits)
-      // console.log(t)
+
       var API_response = result.data
       setCoord({lon: API_response.coord.lon, lat: API_response.coord.lat})
-      setWeather(API_response.weather[0].id)
-      // setWeather(API_response.main.temp)
-      setTemperature(API_response.main.temp)
-      setIcon(API_response.weather[0].icon)
-      setTimezone(API_response.timezone)
+
     }
     fetchData();
     printAll();
