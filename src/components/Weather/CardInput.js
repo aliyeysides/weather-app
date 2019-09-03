@@ -2,17 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Slider } from '@material-ui/core/';
 import './TimeForm.css';
 
-// const date = today.getFullYear() + '-' + month +'-'+today.getDate();
 function getDate() {
   const today = new Date();
   var month = today.getMonth();
   if (today.getMonth() + 1 < 10) {
     month = "0" + (today.getMonth() + 1)
-}
+  }
+
   return today.getFullYear() + '-' + month +'-'+today.getDate()
 }
 
-function TimeForm(props) {
+function CardInput(props) {
   const [hours, setHours] = useState(0)
   const [days, setDays] = useState(0)
 
@@ -46,4 +46,4 @@ function TimeForm(props) {
   )
 }
 
-export default TimeForm;
+export default CardInput;

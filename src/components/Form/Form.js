@@ -1,10 +1,6 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar'
-import Button from '@material-ui/core/Button';
-import Switch from '@material-ui/core/Switch';
-import TextField from '@material-ui/core/TextField';
+import { AppBar, Button, Switch, TextField, Typography } from '@material-ui/core/'
 import ToolBar from '@material-ui/core/ToolBar'
-import Typography from '@material-ui/core/Typography';
 import './Form.css'
 
 function Form(props) {

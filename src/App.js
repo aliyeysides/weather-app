@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Box from '@material-ui/core/Box'
 import Form from './components/Form/Form';
 import WeatherList from './components/Weather/WeatherList';
-
 import './App.css'
 
 function App() {
