@@ -1,5 +1,6 @@
-This project uses:
-- React (w/ hooks), CSS, axios, and Material-UI
+# Weather App
+
+> A weather app built with React 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
