@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid } from '@material-ui/core/';
 
-function CardContent({ list, totalHours }) {
+function CardContent(props) {
   function humidity() {
-    if (list) {
-      console.log(list);
+    if (props.list) {
+      console.log(props.list);
     }
   return (<i className="wi wi-windy"></i>)
   }
@@ -16,7 +16,7 @@ function CardContent({ list, totalHours }) {
       <Grid item xs={6}>
         <i className="wi wi-meteor"></i>
         <p> {humidity()}</p>
-        <p> Wind: </p>
+        <p> Wind: {  } </p>
       </Grid>
     </Grid>
   )

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Slider } from '@material-ui/core/';
-import './TimeForm.css';
+import './WeatherCard.css'
 
 function getDate() {
   const today = new Date();
