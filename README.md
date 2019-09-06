@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 git clone https://github.com/sungyeonu/weather-app.git
 ```
 
-2. Create a .env file with this line:
+2. Create a .env file in the root directory with this line:
 ```
 REACT_APP_OPENWEATHERMAP_API_KEY = d9d324394cc3c0c8114f95f48bf87765
 ```
