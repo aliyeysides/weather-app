@@ -45,7 +45,7 @@ function WeatherCard(props) {
 					<CardHeader deleteIcon={deleteIcon} timezone={timezone} location={props.location}/> 
 				</Grid>
 				<Grid item xs={12}>
-					<CardContent currentWeather={currentWeather()} forecasts={forecasts} totalHours={totalHours}/>
+					<CardContent forecasts={forecasts} totalHours={totalHours}/>
 				</Grid>
 				<Grid item xs={12}>
 					<CardInput setTotalHours={setTotalHours} />
