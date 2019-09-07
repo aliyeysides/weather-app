@@ -53,13 +53,3 @@ function CardHeader({
 }
 
 export default CardHeader;
-
-// <Grid container className="card-header" direction="row" justify="space-between">
-//     <Grid item xs={6}>
-//     {props.location.city}, {props.location.country}
-//     </Grid>
-//     <Grid item xs={3}>
-//     <IconButton aria-label="delete">
-//           <DeleteIcon />
-//         </IconButton>    </Grid>
-//   </Grid>
