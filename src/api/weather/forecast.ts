@@ -1,5 +1,5 @@
 import { get } from "../api";
-import { Forecast } from '../../models/weather';
+import { Forecast } from "../../models/weather";
 
 export const forecast = (city: string, country: string): Promise<Forecast> =>
   get(
