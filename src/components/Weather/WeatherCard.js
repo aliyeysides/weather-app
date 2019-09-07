@@ -4,7 +4,7 @@ import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 import CardInput from "./CardInput";
 import "./WeatherCard.css";
-import { forcast } from "../../api/weather/forcast";
+import { forecast } from "../../api/weather/forecast";
 
 function WeatherCard({ location, isMetric }) {
   //   const [currentForecast, setCurrentForecast] = useState();
@@ -13,8 +13,8 @@ function WeatherCard({ location, isMetric }) {
   const [totalHours, setTotalHours] = useState(0);
 
   function setResults(result) {
-    setTimezone(result.data.city.timezone);
-    setForecasts(result.data.list);
+    setTimezone(result.city.timezone);
+    setForecasts(result.list);
   }
 
   function deleteIcon() {
@@ -23,7 +23,7 @@ function WeatherCard({ location, isMetric }) {
   }
 
   useEffect(() => {
-    forcast(location.city, location.country)
+    forecast(location.city, location.country)
       .then(res => setResults(res))
       .catch(err => console.error(err));
   }, [location]);

@@ -24,26 +24,7 @@ function createRequestConfig(method, body, url, baseURL) {
 
 export async function createRequest(method, url, body, baseURL) {
   const request = createRequestConfig(method, body, url, baseURL);
-  console.log("REQUEST::", request);
   const response = await axios(request);
-  console.log("RESPONSE::", response.data);
-  //   if (response.status === 204) {
-  //     return response.data;
-  //   }
-
-  //   if (response.status !== 200) {
-  //     console.log("something went wrong");
-  //     // let errorMessage;
-  //     // if (response.status === 422) {
-  //     //   errorMessage = response.data;
-  //     //   throw Error(errorMessage)
-  //     // } else if (response.status === 401) {
-  //     //   console.error("Unauthorized http request");
-  //     // } else {
-  //     //     throw Error(response)
-  //     // }
-  //   }
-
   return response.data;
 }
 
