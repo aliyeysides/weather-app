@@ -9,11 +9,17 @@ import {
 import ToolBar from "@material-ui/core/Toolbar";
 import "./Form.css";
 
-function Form(props) {
+interface FormProps {
+  getWeather: () => any;
+  isMetric: boolean;
+  toggleMetric: () => void;
+}
+
+function Form({ getWeather, isMetric, toggleMetric }: FormProps) {
   return (
     <AppBar className="app-bar" position="static" color="default">
       <ToolBar>
-        <form className="form" onSubmit={props.getWeather}>
+        <form className="form" onSubmit={getWeather}>
           <div className="location-input">
             <TextField type="text" name="city" placeholder="City" />
             <TextField type="text" name="country" placeholder="Country" />
@@ -28,9 +34,9 @@ function Form(props) {
           </div>
           <div className="unit-toggle">
             <Typography variant="h6">
-              {props.isMetric ? "Metric" : "Imperial"}
+              {isMetric ? "Metric" : "Imperial"}
             </Typography>
-            <Switch onChange={e => props.toggleMetric()} color="primary" />
+            <Switch onChange={e => toggleMetric()} color="primary" />
           </div>
         </form>
       </ToolBar>
