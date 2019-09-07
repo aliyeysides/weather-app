@@ -4,7 +4,7 @@ import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 import CardInput from "./CardInput";
 import "./WeatherCard.css";
-import { forecast } from "../../api/weather/forecast.ts";
+import { forecast } from "../../api/weather/forecast";
 
 function WeatherCard({ location, isMetric }) {
   //   const [currentForecast, setCurrentForecast] = useState();
