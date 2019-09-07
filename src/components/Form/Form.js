@@ -6,7 +6,7 @@ import {
   TextField,
   Typography
 } from "@material-ui/core";
-import ToolBar from "@material-ui/core/ToolBar";
+import ToolBar from "@material-ui/core/Toolbar";
 import "./Form.css";
 
 function Form(props) {
