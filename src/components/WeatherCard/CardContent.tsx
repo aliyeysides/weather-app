@@ -1,13 +1,19 @@
 import React from "react";
 import { Grid } from "@material-ui/core/";
+import { ListObject } from "../../models/weather";
 
-function CardContent(props) {
+interface CardContentProps {
+  list: ListObject[];
+}
+
+function CardContent({ list }: CardContentProps): JSX.Element {
   function humidity() {
-    if (props.list) {
-      console.log(props.list);
+    if (list) {
+      console.log(list);
     }
     return <i className="wi wi-windy"></i>;
   }
+
   return (
     <Grid
       container
@@ -21,7 +27,7 @@ function CardContent(props) {
       </Grid>
       <Grid item xs={6}>
         <i className="wi wi-meteor"></i>
-        <p> {humidity()}</p>
+        <p>{humidity()}</p>
         <p> Wind: {} </p>
       </Grid>
     </Grid>
