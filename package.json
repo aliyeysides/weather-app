@@ -23,7 +23,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretty-quick --verbose --staged"
+      "pre-commit": "pretty-quick --verbose --staged"
     }
   },
   "eslintConfig": {
