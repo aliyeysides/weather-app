@@ -59,3 +59,8 @@ export interface Forecast {
   list: ListObject[];
   message: number;
 }
+
+export interface Location {
+  city: string;
+  country: string;
+}

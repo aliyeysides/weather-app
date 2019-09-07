@@ -1,22 +1,34 @@
 import React from "react";
 import { Grid, IconButton } from "@material-ui/core/";
 import DeleteIcon from "@material-ui/icons/Delete";
+import { Location } from "../../models/weather";
 
-function CardHeader(props) {
+interface CardHeaderProps {
+  timezone: number;
+  location: Location;
+  deleteIcon: () => void;
+}
+
+function CardHeader({
+  timezone,
+  location,
+  deleteIcon
+}: CardHeaderProps): JSX.Element {
   function printTimezone() {
     var tz = "UTC";
-    if (props.timezone === 0) {
+    if (timezone === 0) {
       return tz;
-    } else if (props.timezone > 0) {
+    } else if (timezone > 0) {
       tz += " +";
-      var t = props.timezone / 60 / 60;
+      var t = timezone / 60 / 60;
 
       tz += t;
     } else {
-      tz += " " + props.timezone / 60 / 60;
+      tz += " " + timezone / 60 / 60;
     }
     return tz;
   }
+
   return (
     <Grid
       container
@@ -26,13 +38,13 @@ function CardHeader(props) {
       alignItems="center"
     >
       <Grid item xs={7}>
-        {props.location.city}, {props.location.country}
+        {location.city}, {location.country}
       </Grid>
       <Grid item xs={3}>
         {printTimezone()}
       </Grid>
       <Grid item xs={2}>
-        <IconButton onClick={props.deleteIcon} aria-label="delete">
+        <IconButton onClick={deleteIcon} aria-label="delete">
           <DeleteIcon />
         </IconButton>
       </Grid>
