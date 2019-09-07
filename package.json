@@ -17,13 +17,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "pretty-quick": "pretty-quick",
+    "prettier": "pretty-quick",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pretty-quick --staged"
+      "pre-commit": "pretty-quick --staged"
     }
   },
   "eslintConfig": {
